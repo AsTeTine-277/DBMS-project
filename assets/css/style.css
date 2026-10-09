@@ -1,0 +1,730 @@
+/* =====================================================
+   HerMart — Consolidated Stylesheet
+   ===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Manrope', sans-serif;
+  color: #201a1e;
+  background: #fef7ff;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* Form input focus glow */
+.input-glow:focus {
+  box-shadow: 0 0 0 4px #ffd9e0;
+  outline: none;
+}
+
+/* Custom subtle shadow */
+.shadow-sm-custom {
+  box-shadow: 0px 4px 20px rgba(101, 88, 95, 0.08);
+}
+
+/* Animations */
+@keyframes success-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-success { animation: success-pop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+@keyframes fade-up {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-fade-up { animation: fade-up 0.5s ease-out forwards; }
+
+/* =========================
+   Navigation
+   ========================= */
+.hm-nav-link {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  color: #514349;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.hm-primary-nav {
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.hm-primary-nav::-webkit-scrollbar { display: none; }
+.hm-primary-nav .hm-nav-link {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 13px;
+}
+.hm-primary-nav-customer {
+  justify-content: space-evenly;
+  gap: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+@media (min-width: 1024px) {
+  .hm-header-actions { margin-right: -32px; }
+}
+.hm-nav-link:hover {
+  background: #fdf2f6;
+  color: #b01e56;
+}
+.hm-nav-link-active {
+  background: #b01e56;
+  color: #fff;
+}
+.hm-nav-link-active:hover {
+  background: #8e1242;
+  color: #fff;
+}
+
+.hm-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #fdf2f6;
+  color: #b01e56;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid #ffd9e2;
+}
+.hm-nav-icon:hover {
+  background: #ffd9e2;
+  color: #8e1242;
+}
+.hm-nav-link-active.hm-nav-icon {
+  background: #b01e56;
+  color: #fff;
+  border-color: #b01e56;
+}
+
+.hm-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 9999px;
+  border: 1px solid #ffd9e2;
+  background: #fdf2f6;
+  color: #b01e56;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+.hm-nav-pill:hover {
+  background: #ffd9e2;
+  color: #8e1242;
+}
+
+.hm-nav-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: #fdf2f6;
+  color: #b01e56;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #ffd9e2;
+}
+.hm-nav-logout:hover {
+  background: #ffd9e7;
+  color: #8e1242;
+}
+
+/* =========================
+   Cards / Buttons
+   ========================= */
+.hm-card {
+  background: #fff;
+  border: 1px solid #e2d3df;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(101, 88, 95, 0.06);
+  transition: all 0.2s ease;
+}
+.hm-card:hover {
+  box-shadow: 0 12px 28px rgba(176, 30, 86, 0.10);
+  border-color: #ffd9e2;
+  transform: translateY(-2px);
+}
+
+/* Global button reset — enforce pill shape and consistent typography
+   on every interactive <button> / <a class="…-btn"> element unless
+   a more specific class overrides it. */
+button,
+.hm-btn {
+  border-radius: 9999px;
+  font-family: inherit;
+}
+
+.hm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.hm-btn-primary {
+  background: #b01e56;
+  color: #fff;
+}
+.hm-btn-primary:hover { background: #8e1242; }
+.hm-btn-accent {
+  background: linear-gradient(90deg, #ff7faa 0%, #b01e56 100%);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(176,30,86,0.18);
+  padding: 14px 26px;
+  font-size: 15px;
+}
+.hm-btn-accent:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+.hm-btn-accent-outline {
+  background: #fff;
+  color: #b01e56;
+  border: 2px solid #ffd9e2;
+  box-shadow: 0 8px 20px rgba(176,30,86,0.06);
+  padding: 12px 24px;
+}
+.hm-btn-accent-outline:hover {
+  background: #fff0f3;
+}
+
+/* Ensure admin action controls are stacked consistently across pages */
+.admin-actions { display:flex; flex-direction:column; gap:0.5rem; align-items:flex-end; }
+.admin-actions form { display:block; margin:0; }
+.admin-actions .hm-btn, .admin-actions button, .admin-actions .hm-select { width:auto; }
+.hm-btn-outline {
+  background: transparent;
+  color: #b01e56;
+  border-color: #ffd9e2;
+}
+.hm-btn-outline:hover {
+  background: #fdf2f6;
+  border-color: #b01e56;
+}
+.hm-btn-light {
+  background: #fdf2f6;
+  color: #b01e56;
+  border-color: #ffd9e2;
+}
+.hm-btn-light:hover { background: #ffd9e2; }
+
+/* Back button — pill-shaped, low visual weight, used in page headers */
+.hm-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 9999px;
+  border: 1px solid #e2d3df;
+  background: #ffffff;
+  color: #514349;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.hm-btn-back:hover {
+  border-color: #b01e56;
+  color: #b01e56;
+  background: #fdf2f6;
+  box-shadow: 0 4px 12px rgba(176, 30, 86, 0.08);
+  transform: translateY(-1px);
+}
+.hm-btn-back:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px #ffd9e0;
+  border-color: #b01e56;
+}
+.hm-btn-back .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Icon-only back button (circular) */
+.hm-btn-back-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid #e2d3df;
+  background: #ffffff;
+  color: #514349;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.hm-btn-back-icon:hover {
+  border-color: #b01e56;
+  color: #b01e56;
+  background: #fdf2f6;
+  box-shadow: 0 4px 12px rgba(176, 30, 86, 0.08);
+  transform: translateY(-1px);
+}
+.hm-btn-back-icon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.hm-input,
+.hm-select,
+.hm-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 0.5rem;
+  border: 1px solid #e2d3df;
+  background: #fff;
+  color: #201a1e;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+.hm-input:focus,
+.hm-select:focus,
+.hm-textarea:focus {
+  outline: none;
+  border-color: #b01e56;
+  box-shadow: 0 0 0 4px #ffd9e0;
+}
+.hm-textarea { resize: vertical; min-height: 110px; }
+.hm-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8e1242;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   Password wrap + eye toggle
+   ========================= */
+.hm-pw-wrap {
+  position: relative;
+}
+.hm-pw-wrap .hm-input {
+  padding-right: 44px;
+}
+.hm-pw-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: transparent;
+  border: none;
+  color: #8e1242;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.hm-pw-toggle:hover {
+  background: #fdf2f6;
+}
+.hm-pw-toggle .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* =========================
+   Role tab picker
+   ========================= */
+.hm-role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 18px 14px;
+  border-radius: 1.25rem;
+  border: 2px solid #e2d3df;
+  background: #fff;
+  color: #514349;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  font-weight: 700;
+  cursor: pointer;
+}
+.hm-role-card:hover {
+  border-color: #ffd9e2;
+  background: #fdf2f6;
+  color: #b01e56;
+  transform: translateY(-2px);
+}
+.hm-role-card .material-symbols-outlined {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+.hm-role-card-active {
+  background: linear-gradient(135deg, #b01e56 0%, #8e1242 100%);
+  color: #fff;
+  border-color: #8e1242;
+  box-shadow: 0 10px 24px rgba(176, 30, 86, 0.18);
+}
+.hm-role-card-active:hover {
+  background: linear-gradient(135deg, #b01e56 0%, #8e1242 100%);
+  color: #fff;
+}
+
+/* =========================
+   Status pills
+   ========================= */
+.hm-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* =========================
+   Product action pill buttons
+   Large oval/pill-shaped buttons used in the product page
+   for "Add to Cart" and "Buy Now". Visual language mirrors
+   the navbar's rounded "Home" pill (.hm-nav-link) for
+   consistency across the site.
+   ========================= */
+.hm-product-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 180px;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2;
+  font-family: inherit;
+  transition: background 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease,
+              transform 0.2s ease, filter 0.2s ease;
+}
+.hm-product-action:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px #ffd9e0;
+}
+
+/* Secondary pill — matches the navbar "Home" button
+   (light pink background, soft border, primary text). */
+.hm-product-action-secondary {
+  background: #fdf2f6;
+  color: #b01e56;
+  border-color: #ffd9e2;
+}
+.hm-product-action-secondary:hover {
+  background: #ffd9e2;
+  border-color: #ffd9e2;
+  color: #8e1242;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(176, 30, 86, 0.08);
+}
+.hm-product-action-secondary:active {
+  background: #ffd9e2;
+  border-color: #b01e56;
+  color: #8e1242;
+  transform: translateY(0);
+}
+
+/* Primary pill — same rounded shape as the secondary, but
+   filled with the brand primary color so the most important
+   action (Buy Now) reads as the strongest CTA. */
+.hm-product-action-primary {
+  background: #b01e56;
+  color: #ffffff;
+  border-color: #b01e56;
+}
+.hm-product-action-primary:hover {
+  background: #8e1242;
+  border-color: #8e1242;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(176, 30, 86, 0.18);
+}
+.hm-product-action-primary:active {
+  background: #8e1242;
+  border-color: #8e1242;
+  color: #ffffff;
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(176, 30, 86, 0.18);
+}
+
+.hm-product-action .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (max-width: 480px) {
+  .hm-product-action {
+    min-width: 0;
+    width: 100%;
+    padding: 13px 22px;
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   Product grid
+   ========================= */
+.product-card {
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid #e2d3df;
+  box-shadow: 0 4px 14px rgba(101, 88, 95, 0.06);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(176, 30, 86, 0.14);
+  border-color: #ffd9e2;
+}
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Product grid wrapper — visible gap between side-by-side cards */
+.product-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.products-page-grid .product-card {
+  border-color: #cdb9c7;
+}
+
+/* =========================
+   Product card — extended
+   Inner structure (info area, action area) and compact
+   pill button used by the inline Add / Buy actions on
+   product grid cards. The grid card is rendered via
+   render_product_card() in includes/functions.php.
+   ========================= */
+
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+}
+.product-card-info:hover { color: inherit; }
+
+.product-card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(226, 211, 223, 0.6);
+  background: #fffafc;
+}
+.product-card-actions .hm-product-action { flex: 1; }
+
+@media (max-width: 480px) {
+  .product-card-actions { flex-direction: column; gap: 6px; }
+  .product-card-actions .hm-product-action { width: 100%; }
+}
+
+.hm-product-action-compact {
+  min-width: 0;
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 9999px;
+  gap: 6px;
+  line-height: 1.2;
+}
+.hm-product-action-compact .material-symbols-outlined { font-size: 16px; }
+
+.product-card-stock-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: #f5f0f2;
+  color: #8a7378;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* =========================
+   Hero pattern
+   ========================= */
+.bg-grid {
+  background-image: radial-gradient(rgba(176, 30, 86, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* =========================
+   Dashboard sidebar
+   ========================= */
+.hm-side-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-width: 0;
+  border-radius: 0.75rem;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #514349;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.hm-side-link:hover {
+  background: #fdf2f6;
+  color: #b01e56;
+}
+.hm-side-link.is-active {
+  background: #fdf2f6;
+  color: #b01e56;
+}
+.hm-side-link .material-symbols-outlined {
+  font-size: 20px;
+  flex: 0 0 20px;
+}
+
+/* =========================
+   Tracker timeline
+   ========================= */
+.hm-tracker {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 6px 4px;
+}
+.hm-tracker-step {
+  flex: 1;
+  min-width: 110px;
+  text-align: center;
+  position: relative;
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.hm-tracker-step::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto 6px;
+  border-radius: 9999px;
+  background: #e2d3df;
+  border: 4px solid #fdf2f6;
+  box-shadow: 0 0 0 1px #e2d3df;
+}
+.hm-tracker-step + .hm-tracker-step::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: #e2d3df;
+  z-index: -1;
+}
+.hm-tracker-step.is-done {
+  color: #b01e56;
+}
+.hm-tracker-step.is-done::before {
+  background: #b01e56;
+  border-color: #fdf2f6;
+  box-shadow: 0 0 0 1px #b01e56;
+}
+.hm-tracker-step.is-done + .hm-tracker-step::after,
+.hm-tracker-step.is-done::after {
+  background: #b01e56;
+}
+
+/* =========================
+   Responsive tweaks
+   ========================= */
+@media (max-width: 720px) {
+  .hm-nav-icon { width: 36px; height: 36px; }
+  .product-grid { gap: 16px; }
+  .product-card-actions { padding: 8px 10px; gap: 6px; }
+}
+
+@media (max-width: 480px) {
+  .hm-btn { padding: 10px 16px; font-size: 13px; }
+  .hm-btn-back { padding: 7px 14px 7px 11px; font-size: 12px; }
+  .hm-btn-back .material-symbols-outlined { font-size: 16px; }
+  .hm-btn-back-icon { width: 36px; height: 36px; }
+  .hm-btn-back-icon .material-symbols-outlined { font-size: 18px; }
+}

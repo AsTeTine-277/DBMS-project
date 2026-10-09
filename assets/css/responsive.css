@@ -1,0 +1,29 @@
+/* =====================================================
+   HerMart — Responsive Utilities
+   Mobile-first overrides for grids and typography.
+   ===================================================== */
+
+.hm-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .hm-grid-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .hm-grid-4,
+  .hm-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hm-grid { gap: 16px; }
+  .hm-hero-text { font-size: 2rem !important; }
+}
+
+@media (max-width: 480px) {
+  .hm-grid-4,
+  .hm-grid-3,
+  .hm-grid-2,
+  .hm-grid { grid-template-columns: 1fr; }
+  .hm-grid { gap: 14px; }
+}
